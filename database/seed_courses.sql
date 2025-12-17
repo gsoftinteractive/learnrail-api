@@ -3,7 +3,7 @@
 -- Run this after schema.sql
 -- =============================================
 
-USE learnrail;
+-- Database is specified in mysql command, no USE statement needed
 
 -- Create default instructor
 INSERT INTO instructors (name, bio, title, expertise, is_active) VALUES
