@@ -1,0 +1,28 @@
+# Logs
+logs/*.log
+
+# Uploads (keep folder structure)
+uploads/*
+!uploads/.gitkeep
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vendor (if using composer later)
+vendor/
+
+# Cache
+*.cache
