@@ -9,9 +9,10 @@
 INSERT INTO instructors (name, bio, title, expertise, is_active) VALUES
 ('Learnrail Academy', 'The official Learnrail Academy instructor team, bringing you expert-level courses in AI, technology, and professional development.', 'Lead Instructor', '["Artificial Intelligence", "Machine Learning", "Prompt Engineering", "Cybersecurity", "Data Science", "Programming"]', TRUE);
 
--- Add AI/ML specific category
-INSERT INTO categories (name, slug, description, icon, color, sort_order) VALUES
-('Artificial Intelligence', 'artificial-intelligence', 'AI, Machine Learning and Data Science courses', 'brain', '#8B5CF6', 6);
+-- Add AI/ML specific category (without color column if not exists)
+INSERT INTO categories (name, slug, description, icon, sort_order) VALUES
+('Artificial Intelligence', 'artificial-intelligence', 'AI, Machine Learning and Data Science courses', 'brain', 6)
+ON DUPLICATE KEY UPDATE name = name;
 
 -- =============================================
 -- COURSES
