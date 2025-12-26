@@ -111,6 +111,7 @@ CREATE TABLE categories (
     slug VARCHAR(100) NOT NULL UNIQUE,
     description TEXT NULL,
     icon VARCHAR(50) NULL,
+    color VARCHAR(20) NULL DEFAULT '#6366F1',
     parent_id INT NULL,
     sort_order INT DEFAULT 0,
     is_active BOOLEAN DEFAULT TRUE,
@@ -563,12 +564,12 @@ INSERT INTO achievements (name, slug, description, type, target_value, points_re
 ('Social Learner', 'social-learner', 'Send 50 messages to your accountability partner', 'messages_sent', 50, 30);
 
 -- Default categories
-INSERT INTO categories (name, slug, description, icon, sort_order) VALUES
-('Technology', 'technology', 'Tech and programming courses', 'cpu', 1),
-('Business', 'business', 'Business and entrepreneurship', 'briefcase', 2),
-('Personal Development', 'personal-development', 'Self improvement and soft skills', 'user', 3),
-('Creative', 'creative', 'Design, art and creativity', 'palette', 4),
-('Health & Wellness', 'health-wellness', 'Health, fitness and wellness', 'heart', 5);
+INSERT INTO categories (name, slug, description, icon, color, sort_order) VALUES
+('Technology', 'technology', 'Tech and programming courses', 'cpu', '#3B82F6', 1),
+('Business', 'business', 'Business and entrepreneurship', 'briefcase', '#10B981', 2),
+('Personal Development', 'personal-development', 'Self improvement and soft skills', 'user', '#8B5CF6', 3),
+('Creative', 'creative', 'Design, art and creativity', 'palette', '#F59E0B', 4),
+('Health & Wellness', 'health-wellness', 'Health, fitness and wellness', 'heart', '#EF4444', 5);
 
 -- Default admin user (password: admin123)
 INSERT INTO users (email, password, first_name, last_name, role, status) VALUES

@@ -96,6 +96,15 @@ $router->group(['middleware' => 'auth'], function($router) {
     // AI Chat
     $router->post('/api/ai/chat', [AiController::class, 'chat']);
     $router->get('/api/ai/history', [AiController::class, 'history']);
+    $router->delete('/api/ai/sessions/{sessionId}', [AiController::class, 'deleteSession']);
+
+    // AI Courses (curriculum-based)
+    $router->get('/api/ai/courses', [AiController::class, 'courses']);
+    $router->get('/api/ai/courses/{id}', [AiController::class, 'showCourse']);
+    $router->get('/api/ai/courses/{id}/curriculum', [AiController::class, 'curriculum']);
+    $router->post('/api/ai/courses/{id}/enroll', [AiController::class, 'enrollCourse']);
+    $router->post('/api/ai/start-lesson', [AiController::class, 'startLesson']);
+    $router->post('/api/ai/lessons/{id}/complete', [AiController::class, 'completeLesson']);
 
     // Career Assessment
     $router->post('/api/career/assess', [CareerController::class, 'assess']);
@@ -211,6 +220,23 @@ $router->group(['prefix' => '/api/admin', 'middleware' => 'admin'], function($ro
     $router->get('/reports/users', [AdminReportController::class, 'users']);
     $router->get('/reports/revenue', [AdminReportController::class, 'revenue']);
     $router->get('/reports/courses', [AdminReportController::class, 'courses']);
+
+    // AI Courses Management
+    $router->get('/ai-courses', [AdminAiCourseController::class, 'index']);
+    $router->post('/ai-courses', [AdminAiCourseController::class, 'create']);
+    $router->get('/ai-courses/{id}', [AdminAiCourseController::class, 'show']);
+    $router->put('/ai-courses/{id}', [AdminAiCourseController::class, 'update']);
+    $router->delete('/ai-courses/{id}', [AdminAiCourseController::class, 'delete']);
+
+    // AI Modules Management
+    $router->post('/ai-courses/{courseId}/modules', [AdminAiCourseController::class, 'createModule']);
+    $router->put('/ai-modules/{id}', [AdminAiCourseController::class, 'updateModule']);
+    $router->delete('/ai-modules/{id}', [AdminAiCourseController::class, 'deleteModule']);
+
+    // AI Lessons Management
+    $router->post('/ai-modules/{moduleId}/lessons', [AdminAiCourseController::class, 'createLesson']);
+    $router->put('/ai-lessons/{id}', [AdminAiCourseController::class, 'updateLesson']);
+    $router->delete('/ai-lessons/{id}', [AdminAiCourseController::class, 'deleteLesson']);
 
 });
 

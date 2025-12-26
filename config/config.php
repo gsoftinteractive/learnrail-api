@@ -51,6 +51,12 @@ define('MAIL_PASSWORD', getenv('MAIL_PASSWORD') ?: '');
 define('MAIL_FROM_ADDRESS', getenv('MAIL_FROM_ADDRESS') ?: 'noreply@learnrail.org');
 define('MAIL_FROM_NAME', getenv('MAIL_FROM_NAME') ?: 'Learnrail');
 
+// AI Configuration
+define('AI_PROVIDER', getenv('AI_PROVIDER') ?: 'claude'); // 'claude' or 'openai'
+define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: '');
+define('OPENAI_API_KEY', getenv('OPENAI_API_KEY') ?: '');
+define('AI_MODEL', getenv('AI_MODEL') ?: 'claude-3-haiku-20240307'); // Default to Haiku (cheapest)
+
 // Pagination
 define('DEFAULT_PAGE_SIZE', 20);
 define('MAX_PAGE_SIZE', 100);
